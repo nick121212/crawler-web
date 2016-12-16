@@ -1,0 +1,60 @@
+.over-hidden {
+    overflow: hidden;
+}
+
+.no-tb-margin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.no-borders {
+    .md-input {
+        border: none !important;
+    }
+}
+
+.fx-autocomplete {
+    margin-top: -20px;
+    .md-input-container {
+        margin-bottom: 0;
+    }
+}
+
+.no-errors {
+    .md-errors-spacer {
+        display: none !important;
+    }
+}
+
+md-tabs.scroll.md-dynamic-height md-tabs-content-wrapper {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+body {
+    @extend .over-hidden;
+}
+
+.fx-invalid {
+    opacity: 1 !important;
+    margin-top: 0 !important;
+}
+
+.schema-form-chips {
+    >label:not(.md-no-float):not(.md-container-ignore),
+    .md-placeholder {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+table.md-table th.md-column {
+    color: inherit;
+}
+
+.red {
+    fill: red;
+}
+
+.green {
+    fill: green;
+}

@@ -1,0 +1,39 @@
+<div class="schema-form-array {{form.htmlClass}}" name="{{::form.key|sfCamelKey}}" sf-field-model="sf-new-array" sf-new-array>
+
+    <md-toolbar class="md-warn">
+        <div class="md-toolbar-tools">
+            <h2 flex>{{ ::form.title }}</h2>
+            <md-button ng-hide="form.readonly || form.add === null" ng-click="appendToArray()" class="md-icon-button {{ form.style.add || 'btn-default' }}">
+                <md-tooltip>
+                    新增
+                </md-tooltip>
+                <md-icon>
+                    <ng-md-icon icon="add_circle_outline"></ng-md-icon>
+                </md-icon>
+            </md-button>
+            <md-button ng-hide="form.readonly || form.del === null" ng-click="deleteFromArray(form.selectedIndex)" class="md-icon-button {{ form.style.del || 'btn-default' }}">
+                <md-tooltip>
+                    删除
+                </md-tooltip>
+                <md-icon>
+                    <ng-md-icon icon="close-circle-outline"></ng-md-icon>
+                </md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-tabs md-selected="form.selectedIndex" md-dynamic-height md-border-bottom md-autoselect>
+        <md-tab ng-repeat="item in modelArray track by $index" ng-disabled="item.disabled" label="{{  (form.titleField && item[form.titleField]) || (form.title + ($index+1)) || item.title}}">
+            <div class="tab{{$index%4}} md-padding" layout-padding schema-form-array-items>
+            </div>
+        </md-tab>
+    </md-tabs>
+
+    <md-input-container style="margin-top:0;" class="md-block" md-is-error="ngModel.$error && ngModel.$invalid">
+        <!--<input class="ng-hide" name="{{::form.key|sfCamelKey}}" schema-validate="form" sf-field-model ng-model="$$value$$" sf-changed="form">-->
+        <div ng-messages="ngModel.$error" aria-live="assertive">
+            <div sf-message ng-message ng-class="{'fx-invalid':ngModel.$invalid}"></div>
+        </div>
+        <div class="hint md-char-counter" ng-if="form.showHints" ng-bind="form.description"></div>
+    </md-input-container>
+</div>

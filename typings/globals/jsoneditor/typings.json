@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/fe8bcfd3ee0d844c935de26d5e1af233dcb98a91/jsoneditor/jsoneditor.d.ts",
+    "raw": "registry:dt/jsoneditor#5.5.7+20160829025535",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/fe8bcfd3ee0d844c935de26d5e1af233dcb98a91/jsoneditor/jsoneditor.d.ts"
+  }
+}

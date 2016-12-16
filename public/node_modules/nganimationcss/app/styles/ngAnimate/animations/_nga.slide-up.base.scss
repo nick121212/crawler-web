@@ -1,0 +1,43 @@
+@mixin slide-up-default {
+    position: relative;
+    overflow: hidden;
+}
+@mixin slide-up-hidden {
+    bottom: 50px;
+}
+@mixin slide-up-visible {
+    bottom: 0;
+}
+
+@mixin nga-slide-up-add {
+    &.ng-enter, &.ng-hide-remove {
+        @include slide-up-hidden;
+    }
+    &.ng-enter.ng-enter-active, &.ng-hide-remove.ng-hide-remove-active {
+        @include slide-up-visible;
+    }
+}
+@mixin nga-slide-up-remove {
+    &.ng-leave.ng-leave-active, &.ng-hide-add.ng-hide-add-active {
+        @include slide-up-hidden;
+    }
+    &.ng-leave, &.ng-hide-add {
+        @include slide-up-visible;
+    }
+}
+@mixin nga-slide-up-move {
+    &.ng-move {
+        @include slide-up-hidden;
+    }
+    &.ng-move.ng-move-active {
+        @include slide-up-visible;
+    }
+}
+
+@mixin nga-slide-up-all {
+    @include slide-up-default;
+
+    @include nga-slide-up-add;
+    @include nga-slide-up-remove;
+    @include nga-slide-up-move;
+}

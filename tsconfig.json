@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "noImplicitAny": false
+    },
+    "include": [
+        "./typings/index.d.ts",
+        "./public/typings/**/*",
+        "./public/src/**/*"
+    ],
+    "exclude": [
+        "./.idea/**/*",
+        "./.vscode/**/*",
+        "./mappings/**/*",
+        "./server/**/*",
+        "./public/node_modules/**/*",
+        "./public/built/**/*",
+        "./public/svgs/**/*"
+    ]
+}

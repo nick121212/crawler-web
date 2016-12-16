@@ -1,0 +1,17 @@
+md-card(ng-disabled="form.readonly",class="{{form.htmlClass}}",sf-field-model="sf-new-array",sf-new-array)
+    md-card-header
+        md-card-header-text
+            span.md-title {{::form.title}}
+    md-card-content(sf-field-transclude,class="{{form.fieldClass}}")
+        md-list
+            md-subheader(ng-repeat-start="item in modelArray") 
+                div(flex,layout="row")
+                    span(flex) {{item.title}}
+                    md-checkbox(style="margin-bottom:0;",ng-checked="modandactCtl.isCheckAll(action)",modandact="item.actions",ng-click="modandactCtl.selectAll()")
+            md-list-item(ng-repeat-end,ng-repeat="action in item.actions",ng-click="modandactCtl.toggle(action)")
+                p {{action.title}}
+                md-checkbox.md-secondary(ng-checked="modandactCtl.isChecked(action)",modandact="action.perGroupActions")
+
+        div(ng-messages="ngModel.$error",class="no-errors",aria-live="assertive")
+            div(sf-message,ng-message,ng-class="{'fx-invalid':ngModel.$invalid && ngModel.$dirty}")
+        div.hint.md-char-counter(ng-if="form.showHints",ng-bind="form.description")

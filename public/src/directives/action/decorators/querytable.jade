@@ -1,0 +1,11 @@
+md-card(ng-disabled="form.readonly",class="schema-form-querytable {{form.htmlClass}}",sf-field-model="sf-new-array",sf-new-array)
+    md-card-header
+        md-card-header-text
+            span.md-title {{::form.title}}
+    md-card-content(flex,layout="column",fx-query-table="{{form.qtOptions.key}}",ng-model="modelArray",_filter="form.qtOptions.resFilter")
+    md-card-actions(layout="column",layout-align="start start")
+        md-input-container(md-is-error="ngModel.$invalid && ngModel.$dirty",style="margin-top:0;margin-bottom:0;")
+            div(ng-messages="ngModel.$error",class="no-errors",aria-live="assertive",style="margin-top:-45px;margin-bottom: 24px;")
+            md-contact-ships.ng-hide(ng-model="$$value$$",sf-field-model,sf-changed="form",schema-validate="form",name="{{::form.key|sfCamelKey}}")
+            div(sf-message,ng-message,ng-class="{'fx-invalid':ngModel.$invalid && ngModel.$dirty}")
+            div.hint.md-char-counter(ng-if="form.showHints",ng-bind="form.description")

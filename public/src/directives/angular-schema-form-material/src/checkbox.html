@@ -1,0 +1,20 @@
+<md-input-container class="checkbox schema-form-checkbox {{::form.htmlClass}}"
+                    md-is-error="!$root.isEmptyObject(ngModel.$error)">
+    <md-checkbox sf-field-model
+                 ng-model="$$value$$"
+                 ng-disabled="form.readonly"
+                 schema-validate="form"
+                 sf-changed="form"
+                 ng-model-options="form.ngModelOptions"
+                 ng-true-value="{{form.trueValue || true}}"
+                 ng-false-value="{{form.falseValue || false}}"
+                 ng-class="form.fieldHtmlClass"
+                 name="{{::form.key|sfCamelKey}}"
+                 aria-label="{{::form.title}}">
+        <span>{{::form.title}}</span>
+    </md-checkbox>
+    <div ng-messages="ngModel.$error" class="md-input-messages-animation">
+        <div sf-message ng-message></div>
+    </div>
+    <div class="md-char-counter">{{ form.description }}</div>
+</md-input-container>

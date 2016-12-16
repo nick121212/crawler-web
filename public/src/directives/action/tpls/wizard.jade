@@ -1,0 +1,8 @@
+md-content.over-hidden(flex,layout-column)
+    md-tabs.scroll(flex,ng-if="wizardCtl.isShow",layout="column",md-selected="wizardCtl.selectedIndex",md-dynamic-height="true",md-border-bottom="true",md-stretch-tabs="always",md-no-pagination="true",md-autoselect,md-swipe-content="true")
+        md-tab(ng-repeat="action in wizardCtl.actionModel.wizard.actions",label="{{action.title}}")
+            form(ng-visible="wizardCtl.showForm(action,$index)",ng-show="wizardCtl.selectedIndex===$index",action-model="action",layout-padding,fx-form-action,key="{{action.key}}",ng-model="wizardCtl.formData",layout="column",name="{{action.key+'Form'}}")
+                span.ng-hide(ng-init="wizardCtl.initForm(action,$parent)")
+    md-divider
+    div
+        div.md-toolbar-tools(fx-toolbar,items="wizardCtl.toolbars",ctls="wizardCtl",layout="row",layout-align="center center")

@@ -1,0 +1,26 @@
+md-content(layout="column",layout-padding)
+    md-toolbar.md-tall.md-hue-3(layout-align="center center",layout="column")
+        div.md-toolbar-actions
+            md-button
+                ng-icon
+                    ng-md-icon(icon="blender",size="96")
+    form(name="loginForm")
+        div(fx-form-action,key="{{loginCtl.key}}",ng-model="loginCtl.formData",layout="column",ng-submit="loginCtl.doSubmit(loginForm)")
+    md-button.md-block(flex,ng-click="loginCtl.doSubmit(loginForm)")
+        md-icon
+            ng-md-icon(icon="login")
+        span Login In
+    md-divider
+    div(layout="row",layout-align="space-around center")
+        md-button.md-icon-button
+            md-tooltip QQ
+            md-icon
+                ng-md-icon(icon="qqchat")
+        md-button.md-icon-button
+            md-tooltip 微博
+            md-icon
+                ng-md-icon(icon="weibo")
+        md-button.md-icon-button
+            md-tooltip 微信
+            md-icon
+                ng-md-icon(icon="wechat")

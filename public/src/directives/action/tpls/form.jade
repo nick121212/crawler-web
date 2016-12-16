@@ -1,0 +1,5 @@
+div
+    //- span {{formCtl.formData}}
+    md-progress-linear(ng-show="formCtl.isBusy",md-model="indeterminate")
+    div(sf-schema="formCtl.actionModel.form.dataSchema",sf-form="formCtl.actionModel.form.formSchema",sf-model="formCtl.formData",layout="column")
+    section(ng-transclude,layout="column")

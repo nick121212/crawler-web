@@ -1,0 +1,14 @@
+md-content(flex,layout="column")
+    md-content(flex)
+        //md-list
+        //    md-list-item(aria-label="样式", ng-click="sideRightCtl.showTheme($event)")
+        //        md-icon
+        //            ng-md-icon(icon="style")
+        //    md-list-item(ng-repeat="color in sideRightCtl.colors",ng-click="sideRightCtl.selectTheme(color)",md-colors="{background: '{{color}}'}",md-colors-watch="false")
+        //        p {{color}}
+    md-divider
+    div(layout="row",layout-align="start center")
+        md-button(ng-click="sideRightCtl.doExit($event)",flex,aria-label="退出")
+            md-tooltip(md-direction="top") 退出
+            md-icon
+                ng-md-icon(icon="settings_power")

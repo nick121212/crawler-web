@@ -1,0 +1,21 @@
+md-content(layout="row",flex,style="overflow:hidden;")
+    md-content(layout="column",flex)
+        div.lock-size
+            md-fab-speed-dial.md-scale.md-fab-top-right(md-direction="down")
+                md-fab-trigger
+                    md-button.md-fab.md-warn(aria-label="menu")
+                        md-icon
+                            ng-md-icon(icon="menu")
+                md-fab-actions
+                    div(fx-toolbar,layout="column",items="pageCtl.actionModel.list.toolbars",ctls="pageCtl")
+        md-content(flex)
+            div#paged3(flex,style="width:100%;height:100%;")
+                //- div.card-container(flex)
+                //-     md-card.card(ng-repeat="item in pageCtl.clientData.rows")
+                //-         md-card-title
+                //-             span.md-headline {{item.title}}
+                //-         md-card-content
+                //-             span {{item.description}}
+                //-         md-card-actions
+                //-             md-button(ng-click="pageCtl.rescaleX()") 缩放X
+                //-             md-button(ng-click="pageCtl.rescaleY()") 缩放Y

@@ -1,0 +1,12 @@
+md-card(ng-disabled="form.readonly",class="schema-form-jsoneditor {{form.htmlClass}}")
+    md-card-header
+        md-card-header-text
+            span.md-title {{::form.title}}
+    md-card-content
+        md-input-container(aria-label="{{::form.title}}",md-is-error="ngModel.$error && ngModel.$invalid",class=" md-block")
+            h3(ng-show="form.title && form.showHints") {{ form.title }}
+            div(ng-jsoneditor,flex,sf-field-model,prefer-text="form.preferText",sf-changed="form",schema-validate="form",ng-model="$$value$$",options="form.jsonOptions",style="height: 500px;")
+            input.hide
+            div(ng-messages="ngModel.$error",aria-live="assertive",md-auto-hide="false")
+                div(sf-message,ng-message)
+            div.md-char-counter {{ form.description }}

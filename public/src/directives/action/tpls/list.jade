@@ -1,0 +1,23 @@
+md-content(layout="row",flex,style="overflow:hidden;")
+    md-content(layout="column",flex)
+        //头部toolbar
+        md-toolbar.md-table-toolbar.md-hue-3(ng-if="listCtl.actionModel.list.toolbars.length")
+            div.md-toolbar-tools(fx-toolbar,layout="row",items="listCtl.actionModel.list.toolbars",ctls="listCtl",ng-disabled="listCtl.isBusy")
+        md-divider(ng-if="listCtl.actionModel.list.toolbars.length")
+        //表格主题
+        md-table-container(flex)
+            table(md-table,flex,multiple="{{!!listCtl.multiple}}",md-row-select,ng-model="listCtl.selected",md-progress="listCtl.promise")
+                thead(md-head,md-order="listCtl.queryData.order",md-on-reorder="listCtl.onOrderChange")
+                    tr(md-row)
+                        th(md-column,md-numeric="column.numeric",md-order-by="{{column.sort}}",ng-repeat="column in listCtl.actionModel.list.columns" ) {{column.title}}
+                        th(md-column,md-numeric,ng-if="listCtl.item.toolbar.length")
+                tbody(md-body)
+                    tr(md-row,md-select="row",md-auto-select="listCtl.autoSelect",md-select-id="{{listCtl.actionModel.list.selectId||0}}",ng-repeat="row in listCtl.clientData.rows | skip: listCtl.queryData.offset:listCtl.isLocal | limitTo: listCtl.queryData.limit | orderBy: listCtl.orderFunc ")
+                        td(md-cell,ng-repeat="column in listCtl.actionModel.list.columns")
+                            section(dy-compile,item="row",html="{{column.content}}") {{column.content}}
+                        td(md-cell,layout="row")
+                            span(flex)
+                            div(fx-toolbar,items="listCtl.actionModel.list.itemToolbars",ctls="listCtl",ng-model="row",index="$index",ng-disabled="listCtl.isBusy")
+        md-table-pagination(ng-if="listCtl.actionModel.list.showPagination",flex="none",md-boundary-links="0==0",md-page-select="listCtl.showPage",ng-disabled="listCtl.isBusy",md-limit="listCtl.queryData.limit" ,md-limit-options="listCtl.mdLimitOptions", md-page="listCtl.queryData.page" md-on-paginate="listCtl.onPageChange" md-total="{{ listCtl.local? listCtl.clientData.rows.length: listCtl.clientData.total }}")
+    //搜索表单
+    div(fx-search-action,do-search="listCtl.doSearchBind",is-show="listCtl.actionModel.list.showSearchPanel",key="{{listCtl.actionModel.list.searchActionKey}}",title="listCtl.actionModel.title",disabled="listCtl.isBusy",ng-model="listCtl.filterData")

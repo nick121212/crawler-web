@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/cff418127d1d43ff431079cc40035c146496955e/angular-websocket/angular-websocket.d.ts",
+    "raw": "registry:dt/angular-websocket#2.0.0+20160630073950",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/cff418127d1d43ff431079cc40035c146496955e/angular-websocket/angular-websocket.d.ts"
+  }
+}

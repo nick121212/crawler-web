@@ -1,0 +1,12 @@
+section(flex,layout="{{qtCtl.layout}}")
+    //- div.lock-size
+    //- md-fab-speed-dial.md-scale.md-fab-bottom-left(md-direction="right",md-open="qtCtl.isOpen",ng-mouseenter="qtCtl.isOpen=true" ng-mouseleave="qtCtl.isOpen=false")
+    //-     md-fab-trigger
+    //-         md-button.md-fab.md-accent(aria-label="menu")
+    //-             md-icon
+    //-                 ng-md-icon(icon="menu")
+    //-     md-fab-actions
+    //-         div(fx-toolbar,layout="row",items="qtCtl.toolbars",ctls="qtCtl")
+    div.nga-fast.nga-stagger.nga-fade(fx-list-action,key="{{qtCtl.key}}",flex,multiple="false",auto-select="true",local="true",client-data="qtCtl.clientData",item-toolbars="qtCtl.itemToolbars",top-toolbars="qtCtl.topToolbars",qt-ctl="qtCtl")
+    md-divider(ng-show="qtCtl.showSearchTable")
+    div.nga-fast.nga-stagger.nga-fade(ng-show="qtCtl.showSearchTable",fx-list-action,key="{{qtCtl.key}}",flex,multiple="true",selected="qtCtl.ngModel")

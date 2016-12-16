@@ -1,0 +1,25 @@
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+#licensing {
+    fill: green;
+}
+
+.link.licensing {
+    stroke: green;
+}
+
+.link.resolved {
+    stroke-dasharray: 0, 2 1;
+}
+
+.md-cell {
+    white-space: nowrap;
+}
+
+.md-table-toolbar {
+    background-color: transparent !important;
+}

@@ -1,0 +1,30 @@
+md-content(layout="row",flex,style="overflow:hidden;")
+    md-content(layout="column",flex)
+        //头部toolbar
+        md-toolbar.md-table-toolbar.md-default
+            div.md-toolbar-tools(fx-toolbar,layout="row",items="ttyCtl.toolbar",ctls="ttyCtl")
+        md-divider
+        //表格主题
+        md-content(flex,layout="row",layout-wrap)
+            md-card(ng-repeat="crawler in ttyCtl.crawlers")
+                md-card-title(ng-init="crawler.chip = !!crawler.chip;")
+                    md-card-title-text
+                        span.md-headline [{{crawler.hostname}}]--[{{crawler.pid}}]--[{{crawler.downloader.key}}]
+                md-card-content
+                    md-checkbox.md-secondary(ng-model="crawler.chip",ng-disabled="true") 是否更换IP服务
+                md-card-content
+                    md-checkbox.md-secondary(ng-model="crawler.downloader.isStart",ng-disabled="true") 是否开始爬取
+                md-card-content
+                    md-checkbox.md-secondary(ng-model="crawler.downloader.isStartDeal",ng-disabled="true") 是否开始HTML分析
+                md-card-actions(fx-toolbar,ng-model="crawler",items="ttyCtl.itemToolbar",ctls="ttyCtl",ng-if="!crawler.chip")
+    //搜索表单
+    md-content.nga-fast.nga-stagger-fast.nga-slide-right(layout="column",flex-gt-sm="30",flex="100",md-whiteframe="2",ng-show="ttyCtl.showLogs")
+        md-toolbar.md-table-toolbar.md-warn
+            div.md-toolbar-tools(fx-toolbar,layout="row",items="ttyCtl.toolbar_logs",ctls="ttyCtl")
+        md-divider
+        md-list(flex,style="overflow:auto;")
+            md-list-item.nga-fast.nga-stagger-fast.nga-slide-right(ng-repeat-start="log in ttyCtl.logs")
+                md-icon(ng-if="log.isError")
+                    ng-md-icon(icon="warning",style="fill:red;")
+                span {{log.updatedAt | date}}  {{log.process}} {{log.message}}
+            md-divider(ng-repeat-end)

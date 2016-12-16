@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/8e571d7b1349c52478b37a58fb164217173de4b1/restangular/restangular.d.ts",
+    "raw": "registry:dt/restangular#1.5.0+20160921174330",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/8e571d7b1349c52478b37a58fb164217173de4b1/restangular/restangular.d.ts"
+  }
+}

@@ -1,0 +1,28 @@
+md-input-container(class="schema-form-autocomplete {{form.htmlClass}}",sf-field,md-is-error="ngModel.$invalid && ngModel.$dirty",ng-class="{'md-input-has-value':boost.searchText && boost.selected}")
+    md-autocomplete(
+    class="fx-autocomplete",
+    ng-disabled="form.readonly",
+    md-no-cache="form.acOptions.noCache",
+    md-autoselect="true",
+    md-delay="200",
+    md-select-on-match="true",
+    md-selected-item="boost.selected",
+    md-is-error="ngModel.$invalid && ngModel.$dirty",
+    md-search-text="boost.searchText",
+    md-selected-item-change="boost.onChange(item)",
+    md-items="item in boost.query()",
+    md-item-text="item[form.acOptions.textField]",
+    md-floating-label="{{ form.title }}",
+    placeholder="{{ form.placeholder }}",
+    md-menu-class="autocomplete-custom-template"
+    )
+        md-item-template
+            div
+                span(ng-if="!form.muti",md-highlight-text="boost.searchText") {{ item[form.acOptions.textField] }}
+                span(ng-if="form.muti",md-highlight-text="boost.searchText",ng-repeat="key in form.muti") {{ !$first ? (form.acOptions.prefix || '-'):'' }} {{item[form.acOptions.textField] }}
+        md-not-found 没有记录
+  
+    div(ng-messages="ngModel.$error",class="no-errors",aria-live="assertive",style="margin-top:-45px;margin-bottom: 24px;")
+        md-contact-ships.ng-hide(ng-model="$$value$$",fx-autocomplete-boost,sf-field-model,sf-changed="form",schema-validate="form",name="{{::form.key|sfCamelKey}}")
+        div(sf-message,ng-message,ng-class="{'fx-invalid':ngModel.$invalid && ngModel.$dirty}")
+    div.hint.md-char-counter(ng-if="form.showHints",ng-bind="form.description")

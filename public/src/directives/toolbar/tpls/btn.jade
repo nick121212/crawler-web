@@ -1,0 +1,8 @@
+md-button(ng-if="{{btnCtl.condition}}",ng-class="btnCtl.className",aria-label="{{btnCtl.title}}",ng-click="btnCtl.onClick($event,btnCtl.ngModel,btnCtl.index)",ng-disabled="{{btnCtl.disabled}}")
+    md-tooltip(ng-if="btnCtl.tooltip",md-direction="{{btnCtl.tooltip.position}}") {{btnCtl.tooltip.title || btnCtl.title}}
+    md-icon(ng-if="btnCtl.icon && btnCtl.icon.icon",md-menu-align-target)
+        ng-md-icon(icon="{{btnCtl.icon.icon}}",ng-style="btnCtl.icon.style",options='{"rotation":"none"}')
+    span(ng-if="btnCtl.showTitle",layout-padding) {{btnCtl.title}} 
+    span(ng-hide="true",ng-bind="{{btnCtl.disabled}}")
+    md-icon(ng-if="btnCtl.icon && btnCtl.icon.ricon",md-menu-align-target)
+        ng-md-icon(icon="{{btnCtl.icon.ricon}}",ng-style="btnCtl.icon.style",options='{"rotation":"none"}')

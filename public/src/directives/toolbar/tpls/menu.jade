@@ -1,0 +1,6 @@
+md-menu(md-offset="2 0")
+    md-button(ng-class="menuCtl.className",aria-label="菜单",ng-click="menuCtl.materialUtils.openMenu($mdOpenMenu,$event)",ng-disabled="{{menuCtl.disabled}}")
+        md-tooltip(ng-if="menuCtl.tooltip",md-direction="{{menuCtl.tooltip.position}}") {{menuCtl.tooltip.title || menuCtl.title}}
+        md-icon(ng-if="menuCtl.icon",md-menu-origin)
+            ng-md-icon(icon="{{menuCtl.icon.icon}}",ng-style="menuCtl.icon.style",options='{"rotation":"none"}')
+    md-menu-content(width="{{menuCtl.width}}",fx-toolbar,items="menuCtl.items",ng-model="menuCtl.ngModel")

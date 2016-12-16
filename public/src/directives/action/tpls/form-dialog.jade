@@ -1,0 +1,11 @@
+md-dialog(aria-label="dialogFormCtl.actionModel.title")
+    md-toolbar.md-accent
+        div.md-toolbar-tools(fx-toolbar,items="dialogFormCtl.toolbars")
+    md-dialog-content.md-padding(flex)
+        form(layout="column",name="dialogForm")
+            div(fx-form-action,key="{{dialogFormCtl.key}}",ng-model="dialogFormCtl.formData",ng-disabled="dialogFormCtl.isBusy")
+    md-dialog-actions(layout="rows")
+        md-button(ng-click="dialogFormCtl.doSubmit(dialogForm)",ng-disabled="dialogFormCtl.isBusy")
+            md-icon
+                ng-md-icon(icon="{{dialogFormCtl.actionModel.icon}}")
+            span {{dialogFormCtl.actionModel.title}}

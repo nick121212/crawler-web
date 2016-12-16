@@ -1,0 +1,5 @@
+md-card(ng-disabled="form.readonly",class="{{form.htmlClass}}")
+    md-card-header
+        md-card-header-text
+            span.md-title {{::form.title}}
+    md-card-content(sf-field-transclude,class="{{form.fieldClass}}")

@@ -1,0 +1,7 @@
+md-toolbar.md-whiteframe-glow-z1.md-accent(md-style-color="{'background-color': 'primary.A200'}")
+    div.md-toolbar-tools(fx-toolbar,items="homeCtl.toolbar",layout="row",ctls="homeCtl")
+md-content(flex="100",layout="row")
+    md-sidenav.md-sidenav-left(ui-view="sidenavLeft",md-is-locked-open="$mdMedia('gt-md')",md-component-id="left",md-whiteframe="4",layout="column")
+    md-sidenav.md-sidenav-right(md-component-id="right",ui-view="sidenavRight",layout="column",md-whiteframe="4")
+    md-content(ui-view="content",flex="100",layout="column")
+    div(execute-cmd,real-time="true")

@@ -1,0 +1,13 @@
+md-content(flex="100",layout="column",ng-cloak)
+    fx-side-menu-search
+    md-content(flex="100")
+        fx-side-menu.side-menu(selected-nodes="sideLeftCtl.selectedNodes",modules="sideLeftCtl.modules",ng-click="sideLeftCtl.doLinkBind")
+            md-button.layout-fill(ng-click="sideCtl.doLinkPre($event,node)",md-style-color="{'background-color': sideCtl.isSelected(node) ? 'primary.300': 'primary.0'}")
+                div(flex="100",layout="row")
+                    md-icon
+                        ng-md-icon(icon="{{ node.icon||'apps'}}")
+                    div.md-margin(flex="100") {{node.title}}
+                    md-icon
+                        ng-md-icon(options='{"rotation": "none"}',ng-if="!sideCtl.isLeaf(node)",icon="{{ sideCtl.isShowChildren(node)?'expand_more':'chevron_right' }}")
+    md-divider
+    div(fx-toolbar,items="sideLeftCtl.toolbarBottom")

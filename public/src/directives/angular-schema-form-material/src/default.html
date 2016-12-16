@@ -1,0 +1,13 @@
+<md-input-container class="schema-form-{{::form.type}} {{::form.htmlClass}}" md-is-error="ngModel.$error && ngModel.$invalid && ngModel.$dirty" sf-layout sf-material-class="md-input-has-value">
+    <label ng-show="showTitle()" for="{{::form.key|sfCamelKey}}">{{::form.title}}</label>
+    <md-icon ng-if="form.icon">
+        <ng-md-icon icon="{{ form.icon.leftIcon }}" ng-style="form.icon.style"></ng-md-icon>
+    </md-icon>
+    <input sf-field-model="replaceAll" type="{{::form.type}}" step="any" compare-to="{{form.compare.to}}" compare-opt="{{form.compare.opt}}" compare-type="{{form.compare.type}}" compare-model="model" compare-form="copyWithIndex($scope.$index)||form" ng-model="$$value$$"
+        sf-changed="form" placeholder="{{form.placeholder}}" id="{{::form.key|sfCamelKey}}" ng-class="::form.fieldHtmlClass" ng-disabled="::form.readonly" schema-validate="form" name="{{::form.key|sfCamelKey}}" aria-describedby="{{::form.key|sfCamelKey}}Status"
+    />
+    <div ng-messages="ngModel.$error" aria-live="assertive">
+        <div sf-message ng-message></div>
+    </div>
+    <div class="hint md-char-counter" ng-if="form.showHints" ng-bind="form.description"></div>
+</md-input-container>

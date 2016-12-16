@@ -1,0 +1,34 @@
+@mixin collapse-default {
+    overflow: hidden;
+}
+
+
+@mixin nga-collapse-add {
+    &.ng-enter:not(.ng-enter-active), &.ng-hide-remove:not(.ng-hide-remove-active) {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+@mixin nga-collapse-remove {
+    &.ng-leave.ng-leave-active, &.ng-hide-add.ng-hide-add-active {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+@mixin nga-collapse-move {
+    &.ng-move {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@mixin nga-collapse-all {
+    @include collapse-default;
+    
+    @include nga-collapse-add;
+    @include nga-collapse-remove;
+    @include nga-collapse-move;
+}

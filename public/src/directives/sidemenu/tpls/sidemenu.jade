@@ -1,0 +1,6 @@
+ul(ng-if="node.{{opts.children}}.length")
+    li(ng-if="node.showed",ng-repeat="node in node.{{opts.children}} | filter: sideCtl.options.filterExpression | orderBy:['{{opts.orderBy}}']:true")
+        div(fx-side-menu-content-transclude,ng-click="sideCtl.showChildren(node)")
+        md-divider(ng-if="node.depth===1")
+        fx-side-menu-child.side-menu-child(ng-show="sideCtl.isShowChildren(node)")
+md-divider(ng-if="!$last && node.depth>1")

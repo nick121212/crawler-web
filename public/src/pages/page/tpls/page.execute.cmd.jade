@@ -1,0 +1,12 @@
+md-content(flex,layout="column")
+    md-toolbar.md-table-toolbar.md-hue-3(md-style-color1="{'color': 'primary.A100'}")
+        div.md-toolbar-tools(fx-toolbar,layout="row",items="pageCtl.toolbars",ctls="pageCtl")
+    md-divider
+    md-content(flex)
+        form.md-padding(layout="column",name="executeForm",flex)
+            div(fx-form-action,key="{{pageCtl.key}}",ng-model="pageCtl.formData",ng-disabled="pageCtl.isBusy")
+    md-divider
+    md-button(ng-click="pageCtl.doSubmit($event,executeForm)",ng-disabled="pageCtl.isBusy")
+        md-icon
+            ng-md-icon(icon="apple-keyboard-command")
+        span 执行命令

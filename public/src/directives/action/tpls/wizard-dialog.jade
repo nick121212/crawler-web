@@ -1,0 +1,4 @@
+md-dialog(aria-label="dialogWizardCtl.actionModel.title")
+    md-toolbar.md-accent
+        div.md-toolbar-tools(fx-toolbar,items="dialogWizardCtl.toolbars")
+    md-dialog-content(flex,fx-wizard-action,key="{{dialogWizardCtl.key}}",ng-submit="dialogWizardCtl.submitCallBack",ng-model="dialogWizardCtl.formData",layout="column")

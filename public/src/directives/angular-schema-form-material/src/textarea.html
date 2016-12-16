@@ -1,0 +1,18 @@
+<md-input-container class="{{::form.htmlClass}} schema-form-textarea"
+                    sf-layout
+                    md-is-error="ngModel.$error && ngModel.$invalid">
+  <label ng-show="showTitle()" for="{{::form.key|sfCamelKey}}">{{::form.title}}</label>
+  <textarea ng-class="::form.fieldHtmlClass"
+            id="{{::form.key|sfCamelKey}}"
+            sf-changed="form"
+            ng-disabled="::form.readonly"
+            sf-field-model
+            schema-validate="form"
+            name="{{::form.key|sfCamelKey}}"></textarea>
+
+  <div ng-messages="ngModel.$error" aria-live="assertive">
+    <div sf-message ng-message></div>
+  </div>
+  <div class="hint md-char-counter" ng-if="form.showHints" ng-bind="form.description"></div>
+
+</md-input-container>

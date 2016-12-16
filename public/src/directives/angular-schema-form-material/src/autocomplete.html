@@ -1,0 +1,37 @@
+<md-input-container class="form-group no-errors schema-form-autocomplete {{form.htmlClass}}"
+                    md-is-error="ngModel.$error && ngModel.$invalid"
+                    sf-layout>
+    <md-autocomplete flex
+                     style="height: 48px;"
+                     ng-disabled="form.readonly"
+                     ng-model="$$value$$"
+                     sf-autocomplete
+                     sf-field-model="replaceAll"
+
+                     ng-init="autoData={};form.init($$value$$,autoData,arrayIndex)"
+                     md-no-cache="form.noCache"
+                     md-selected-item="autoData.selected"
+                     md-search-text="autoData.searchText"
+                     md-selected-item-change="form.onChange(item, form, model, modelArray, arrayIndex)"
+                     md-items="item in form.query(autoData.searchText,modelArray,arrayIndex,$parent)"
+                     md-item-text="item[form.textField]"
+                     md-floating-label="{{ form.title }}"
+                     placeholder="{{ form.placeholder }}"
+
+                     md-menu-class="autocomplete-custom-template">
+        <md-item-template>
+            <span md-highlight-text="searchText">{{item.name}}</span>
+        </md-item-template>
+        <md-not-found>
+            No matches found
+        </md-not-found>
+    </md-autocomplete>
+
+    <input class="ng-hide" name="{{::form.key|sfCamelKey}}" sf-changed="form" sf-field-model schema-validate="form"/>
+
+    <div ng-messages="ngModel.$error" aria-live="assertive">
+        <div sf-message ng-message></div>
+    </div>
+    <div class="hint md-char-counter" ng-if="form.showHints" ng-bind="form.description"></div>
+
+</md-input-container>

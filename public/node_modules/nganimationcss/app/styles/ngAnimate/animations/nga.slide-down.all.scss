@@ -1,0 +1,19 @@
+@import '_nga.slide-down.base';
+
+
+.nga-slide-down-add {
+    @include slide-down-default;
+    @include nga-slide-down-add;
+}
+.nga-slide-down-remove {
+    @include slide-down-default;
+    @include nga-slide-down-remove;
+}
+.nga-slide-down-move {
+    @include slide-down-default;
+    @include nga-slide-down-move;
+}
+
+.nga-slide-down-all {
+    @include nga-slide-down-all;
+}
